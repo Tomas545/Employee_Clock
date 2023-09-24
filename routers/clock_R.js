@@ -32,18 +32,16 @@ router.patch("/Edit",(req, res) => {
 
     let newAnswerObj = {};
     newAnswerObj.id = Number(req.body.idx);
-    newAnswerObj.category = req.body.category;
-    newAnswerObj.task_name = req.body.task_name;
-    newAnswerObj.task_details = req.body.task_details;
-    newAnswerObj.due_date = req.body.due_date;
+    newAnswerObj.first_name = req.body.first_name;
+    newAnswerObj.last_name = req.body.last_name;
 
-    const UpdateQuery = `UPDATE todolist SET category = '${newAnswerObj.category}',task_name = '${newAnswerObj.task_name}',task_details = '${newAnswerObj.task_details}' , due_date = '${newAnswerObj.due_date}' WHERE id = ${newAnswerObj.id}`;
+    const UpdateQuery = `UPDATE employee_id SET first_name = '${newAnswerObj.first_name}',last_name = '${newAnswerObj.last_name}' WHERE id = ${newAnswerObj.id}`;
 
     db_pool.query(UpdateQuery,function (err,rows,fields,){
         if (err){
             res.status(500).json({message:err});
         }else{
-            res.status(200).json({message:"Task updated"});
+            res.status(200).json({message:"employee updated"});
         }
     })
     console.log(newAnswerObj);
@@ -53,7 +51,7 @@ router.delete("/Delete",(req, res) => {
 
     let id= Number(req.body.idx);
 
-    let q=`DELETE FROM \`todolist\` WHERE id =${id}`;
+    let q=`DELETE FROM \`employee_id\` WHERE id =${id}`;
 
     db_pool.query(q, function(err, rows, fields){
 
