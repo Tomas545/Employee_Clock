@@ -1,0 +1,25 @@
+<%- include("TopPage.ejs") %>
+<main>
+    <h1>
+        My todolist
+    </h1>
+    <div id="AddTask">
+        <input type="text" name="first_name" id="first_name" placeholder="first name" />
+        <input type="text" name="last_name"   id="last_name"   placeholder="last name" />
+        <button onclick="addNewLine();">Add task</button>
+    </div>
+    <table>
+        <thead>
+        <tr>
+            <th></th>
+            <th>employee_id</th>
+            <th>first_name</th>
+            <th>last_name</th>
+            <th></th>
+        </tr>
+        </thead>
+        <tbody id="mainTable">  </tbody>
+    </table>
+</main>
+<script src="/js/clock_CRUD.js"></script>
+<%- include("BottomPage.ejs") %>

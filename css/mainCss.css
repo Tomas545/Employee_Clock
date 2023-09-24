@@ -1,0 +1,28 @@
+body{
+    background-color: aquamarine;
+    margin: 0 auto;
+    text-align: center;
+}
+#AddTask{
+    margin:0 auto ;
+    width: 100%;
+}
+form{
+    margin:0 auto ;
+    width: 100%
+}
+h1{
+    width: 100%;
+    float: right;
+}
+td{border: 1px solid black;}
+
+th{background-color: aqua;}
+
+tbody tr:nth-child(even) {background-color: lightgray;}
+
+tbody tr:hover{background-color: yellow;}
+
+table{
+    margin: 0 auto;
+}
