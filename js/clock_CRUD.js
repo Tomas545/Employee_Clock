@@ -5,12 +5,11 @@ function CreateTble(){
     let str="";
     for(let line of raw_data){
         str+="<tr>";
-        str+=`<td><button onclick="editLine(${line.id});">edit</button></td>`;
+        str+=`<td><button onclick="editLine(${line.id});">edit employee</button></td>`;
         str+="<td>"+line.id+"</td>";
         str+="<td>"+line.first_name+"</td>";
         str+="<td>"+line.last_name+"</td>";
-        //str+="<td>"+line.due_date+"</td>";
-        str+=`<td><button onclick="deleteLine(${line.id});">Completed</button></td>`;
+        str+=`<td><button onclick="deleteLine(${line.id});">delete employee</button></td>`;
         str+="</tr>";
     }
     document.getElementById("mainTable").innerHTML=str;
@@ -59,10 +58,8 @@ async function deleteLine(id) {
 async function editLine(id) {
     let objToServer={};
     objToServer.idx=id;
-    objToServer.category=document.getElementById("category").value;
-    objToServer.task_name=document.getElementById("task_name").value;
-    objToServer.task_details=document.getElementById("task_details").value;
-    objToServer.due_date=document.getElementById("due_date").value;
+    objToServer.first_name=document.getElementById("first_name").value;
+    objToServer.last_name=document.getElementById("last_name").value;
 
     let response = await fetch('/Edit', {
             method: 'PATCH',
