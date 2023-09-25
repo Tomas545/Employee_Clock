@@ -3,11 +3,12 @@
     <h1>
         Employee clock stamp
     </h1>
-    <div id="AddTask">
+    <div id="AddEmployee">
         <input type="text" name="first_name" id="first_name" placeholder="first name" />
         <input type="text" name="last_name"   id="last_name"   placeholder="last name" />
         <button onclick="addNewLine();">Add employee</button>
-    </div>
+    </div><br>
+    <input type="search" id="filterField" oninput="CreateTble();" placeholder="search by last name">
     <table>
         <thead>
         <tr>
@@ -18,8 +19,32 @@
             <th></th>
         </tr>
         </thead>
-        <tbody id="mainTable">  </tbody>
+        <tbody id="employeeTable">  </tbody>
+    </table><br>
+
+    <div id="enterTime">
+        <input type="text" name="employee_id" id="employee_id" placeholder="enter employee id">
+        <button onclick="addEnterTime()">enter</button>
+        <button onclick="addExitTime()">exit</button>
+    </div><br>
+
+    <div>
+        <input type="text" name="stamp_id" id="stamp_id">
+        <button onclick="getStamps()">select employee</button>
+    </div>
+    <table>
+        <thead>
+        <tr>
+            <th>date</th>
+            <th>employee_id</th>
+            <th>enter time</th>
+            <th>exit time</th>
+            <th></th>
+        </tr>
+        </thead>
+        <tbody id="stamping_table"> </tbody>
     </table>
+
 </main>
 <script src="/js/clock_CRUD.js"></script>
 <%- include("BottomPage.ejs") %>
