@@ -27,9 +27,10 @@ function CreateTble(){
         str+="</tr>";
     }
     document.getElementById("employeeTable").innerHTML=str;
+
 }
 function CreateTble2(){
-    srchTerm=document.getElementById("filterField").value;
+    srchTerm=document.getElementById("filterField2").value;
     let data=raw_data.filter(FilterData);
     let str="";
     for(let line of data){
@@ -41,7 +42,6 @@ function CreateTble2(){
         str+="</tr>";
     }
     document.getElementById("employeeTable2").innerHTML=str;
-    //document.getElementById("employeeTable3").innerHTML=str;
 
 }
 
@@ -76,8 +76,17 @@ async function getList() {
     console.log("data=",data);
     raw_data = data;
     CreateTble();
+
+}
+async function getList2() {
+    let response = await fetch('/List');
+// console.log("response=",response);
+    let data = await response.json();
+    console.log("data=",data);
+    raw_data = data;
     CreateTble2();
 }
+
 async function getStamps() {
 
     let stamp_id = document.getElementById("employee_id").value;
@@ -176,5 +185,6 @@ async function addExitTime(){
 }
 
 getList();
+getList2()
 getStamps();
 
