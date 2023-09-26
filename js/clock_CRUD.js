@@ -23,7 +23,7 @@ function CreateTble(){
         str+="<td>"+line.first_name+"</td>";
         str+="<td>"+line.last_name+"</td>";
         str+=`<td><button onclick="deleteLine(${line.id});">delete employee</button></td>`;
-        str+=`<td><button onclick="selectLine(${line.id});">select employee</button></td>`;
+        //str+=`<td><button onclick="selectLine(${line.id});">select employee</button></td>`;
         str+="</tr>";
     }
     document.getElementById("employeeTable").innerHTML=str;
@@ -130,7 +130,6 @@ async function deleteLine(id) {
 async function selectLine(id){
     document.getElementById("employee_id").value = id;
     getStamps();
-
 }
 async function editLine(id) {
     let objToServer={};
