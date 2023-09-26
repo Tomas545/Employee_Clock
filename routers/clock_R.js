@@ -35,10 +35,10 @@ router.post("/Add",(req, res) => {
     console.log(ThemesObj);
 });
 
-router.post("/AddEnterTime",(req,res)=>{
+    router.post("/AddEnterTime",(req,res)=>{
     let employee_id = req.body.employee_id;
 
-    const addQuery = `INSERT INTO time_stamps(date , employee_id , enter_time) VALUES(CURRENT_DATE , '${employee_id}' , CURRENT_TIME)`;
+    const addQuery = ` INSERT INTO time_stamps(date , employee_id , enter_time) VALUES(CURRENT_DATE , '${employee_id}' , CURRENT_TIME)`;
 
     db_pool.query(addQuery,function (err,rows){
         if (err){
@@ -49,10 +49,11 @@ router.post("/AddEnterTime",(req,res)=>{
         }
     })
 });
+
 router.patch("/AddExitTime",(req,res)=>{
     let employee_id = req.body.employee_id;
 
-    const addQuery = `UPDATE time_stamps SET exit_time = CURRENT_TIME WHERE employee_id = '${employee_id}' AND date = CURRENT_DATE`;
+    const addQuery = `UPDATE time_stamps SET exit_time = CURRENT_TIME WHERE employee_id = '${employee_id}' AND date = CURRENT_DATE AND IsNull(exit_time)`;
 
     db_pool.query(addQuery,function (err,rows){
         if (err){
