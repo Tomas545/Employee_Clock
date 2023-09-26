@@ -18,13 +18,8 @@
         <tbody id="employeeTable2">  </tbody>
     </table><br>
 
-    <!--
-        <div>
-            <input type="text" name="stamp_id" id="stamp_id">
-            <button onclick="getStamps()">select employee</button>
-        </div>-->
     <table>
-        <input type="text" name="employee_id" id="employee_id" placeholder="enter employee id">
+        <input type="text" oninput="getStamps()" name="employee_id" id="employee_id" placeholder="enter employee id">
         <thead>
         <tr>
             <th>date</th>
@@ -36,7 +31,7 @@
         </thead>
         <tbody id="stamping_table"> </tbody>
     </table>
-    
+
     <button><a href="http://localhost:4545/" >click for main page</a></button>
     <button><a href="http://localhost:4545/stampingPage" >click for stamping page</a></button>
 
