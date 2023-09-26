@@ -1,0 +1,33 @@
+<%- include("TopPage.ejs") %>
+<main>
+    <h1>
+        stamping page
+    </h1>
+
+    <input type="search" id="filterField" oninput="CreateTble2();" placeholder="search by last name">
+    <table>
+        <thead>
+        <tr>
+            <th></th>
+            <th>employee_id</th>
+            <th>first_name</th>
+            <th>last_name</th>
+            <th></th>
+        </tr>
+        </thead>
+        <tbody id="employeeTable2">  </tbody>
+    </table><br>
+
+    <div id="enterTime">
+        <input type="text" name="employee_id" id="employee_id" placeholder="enter employee id">
+        <button onclick="addEnterTime()">enter</button>
+        <button onclick="addExitTime()">exit</button>
+    </div><br>
+    <button><a href="http://localhost:4545/" >click for main page</a></button>
+    <button><a href="http://localhost:4545/employeeHours" >click for employee hours page</a></button>
+
+
+
+</main>
+<script src="/js/clock_CRUD.js"></script>
+<%- include("BottomPage.ejs") %>
