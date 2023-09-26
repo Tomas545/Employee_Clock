@@ -29,12 +29,12 @@ function CreateTble(){
     document.getElementById("employeeTable").innerHTML=str;
 }
 function CreateStampTable(){
-
+//line.date.toString().substring(0,10)
     let data=employee_data;
     let str="";
     for(let line of data){
         str+="<tr>";
-        str+="<td>"+line.date+"</td>";
+        str+="<td>"+reverseString(line.date.toString())+"</td>";
         str+="<td>"+line.employee_id+"</td>";
         str+="<td>"+line.enter_time+"</td>";
         str+="<td>"+line.exit_time+"</td>";
@@ -42,7 +42,14 @@ function CreateStampTable(){
     }
     document.getElementById("stamping_table").innerHTML=str;
 }
-
+function reverseString(str) {
+    str = str.substring(0,10);
+    let str2 = "";
+    str2 += str.substring(8);
+    str2 += str.substring(4,8);
+    str2 += str.substring(0,4);
+    return str2;
+}
 async function getList() {
     let response = await fetch('/List');
 // console.log("response=",response);
@@ -53,7 +60,7 @@ async function getList() {
 }
 async function getStamps() {
 
-    let stamp_id = document.getElementById("stamp_id").value;
+    let stamp_id = document.getElementById("employee_id").value;
     let response = await fetch('/Employee', {
             method: 'POST',
             headers: {
@@ -101,8 +108,9 @@ async function deleteLine(id) {
 }
 
 async function selectLine(id){
-    let objToServer={};
-    objToServer.idx=id;
+    document.getElementById("employee_id").value = id;
+    getStamps();
+
 }
 async function editLine(id) {
     let objToServer={};
@@ -131,6 +139,7 @@ async function addEnterTime(){
             body: JSON.stringify({employee_id: employee_id})
         }
     );
+    getStamps();
 }
 
 async function addExitTime(){
@@ -144,6 +153,7 @@ async function addExitTime(){
             body: JSON.stringify({employee_id: employee_id})
         }
     );
+    getStamps();
 }
 
 getList();
