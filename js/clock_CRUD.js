@@ -28,6 +28,23 @@ function CreateTble(){
     }
     document.getElementById("employeeTable").innerHTML=str;
 }
+function CreateTble2(){
+    srchTerm=document.getElementById("filterField").value;
+    let data=raw_data.filter(FilterData);
+    let str="";
+    for(let line of data){
+        str+="<tr>";
+        str+="<td>"+line.id+"</td>";
+        str+="<td>"+line.first_name+"</td>";
+        str+="<td>"+line.last_name+"</td>";
+        str+=`<td><button onclick="selectLine(${line.id});">select employee</button></td>`;
+        str+="</tr>";
+    }
+    document.getElementById("employeeTable2").innerHTML=str;
+    //document.getElementById("employeeTable3").innerHTML=str;
+
+}
+
 function CreateStampTable(){
 //line.date.toString().substring(0,10)
     let data=employee_data;
@@ -41,6 +58,8 @@ function CreateStampTable(){
         str+="</tr>";
     }
     document.getElementById("stamping_table").innerHTML=str;
+    //document.getElementById("stamping_table2").innerHTML=str;
+
 }
 function reverseString(str) {
     str = str.substring(0,10);
@@ -57,6 +76,7 @@ async function getList() {
     console.log("data=",data);
     raw_data = data;
     CreateTble();
+    CreateTble2();
 }
 async function getStamps() {
 
