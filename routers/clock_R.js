@@ -7,6 +7,16 @@ router.get("/",(req, res) => {
     res.render("mainPage");
 
 });
+router.get("/stampingPage",(req, res) => {
+
+    res.render("stampingPage");
+
+});
+router.get("/employeeHours",(req, res) => {
+
+    res.render("employeeHoursPage");
+
+});
 
 router.post("/Add",(req, res) => {
 
@@ -114,7 +124,7 @@ router.post("/Employee",(req, res) => {
 
     let stamp_id = req.body.stamp_id;
 
-    let q=`SELECT * FROM time_stamps WHERE employee_id= '${stamp_id}'`;
+    let q=`SELECT *  FROM time_stamps WHERE employee_id= '${stamp_id}'`;
 
     db_pool.query(q, function(err, rows, fields){
 
