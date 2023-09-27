@@ -1,6 +1,7 @@
 let raw_data=[];
 let employee_data = [];
 let srchTerm="";
+let employeeSelected = false;
 
 function FilterData(el){
     console.log("FilterData::",el);
@@ -137,6 +138,7 @@ async function deleteLine(id) {
 }
 
 async function selectLine(id){
+    employeeSelected = true;
     document.getElementById("employee_id").value = id;
     getStamps();
 }
@@ -157,8 +159,8 @@ async function editLine(id) {
     getList();
 }
 async function addEnterTime(){
+    if (employeeSelected === true){
     let employee_id=document.getElementById("employee_id").value;
-
     let response = await fetch('/AddEnterTime', {
             method: 'POST',
             headers: {
@@ -168,6 +170,8 @@ async function addEnterTime(){
         }
     );
     getStamps();
+    employeeSelected = false;
+    }
 }
 
 async function addExitTime(){
@@ -184,7 +188,8 @@ async function addExitTime(){
     getStamps();
 }
 
+
 getList();
 getList2()
 getStamps();
-
+document.getElementById("employee_id").value = " ";
