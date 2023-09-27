@@ -46,7 +46,6 @@ function CreateStampTable(){
         str+="</tr>";
     }
     document.getElementById("stamping_table").innerHTML=str;
-    //document.getElementById("stamping_table2").innerHTML=str;
 
 }
 
