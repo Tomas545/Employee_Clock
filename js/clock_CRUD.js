@@ -1,7 +1,7 @@
 let raw_data=[];
-let employee_data = [];
+//let employee_data = [];
 let srchTerm="";
-let employeeSelected = false;
+//let employeeSelected = false;
 
 function FilterData(el){
     console.log("FilterData::",el);
@@ -30,6 +30,7 @@ function CreateTble(){
     document.getElementById("employeeTable").innerHTML=str;
 
 }
+/*
 function CreateTble2(){
     srchTerm=document.getElementById("filterField2").value;
     let data=raw_data.filter(FilterData);
@@ -45,7 +46,8 @@ function CreateTble2(){
     document.getElementById("employeeTable2").innerHTML=str;
 
 }
-
+*/
+/*
 function CreateStampTable(){
 //line.date.toString().substring(0,10)
     let data=employee_data;
@@ -61,7 +63,8 @@ function CreateStampTable(){
     document.getElementById("stamping_table").innerHTML=str;
     //document.getElementById("stamping_table2").innerHTML=str;
 
-}
+}*/
+/*
 function reverseString(str) {
     str = str.substring(0,10);
     let str2 = "";
@@ -69,7 +72,7 @@ function reverseString(str) {
     str2 += str.substring(4,8);
     str2 += str.substring(0,4);
     return str2;
-}
+}*/
 async function getList() {
     let response = await fetch('/List');
 // console.log("response=",response);
@@ -79,6 +82,7 @@ async function getList() {
     CreateTble();
 
 }
+/*
 async function getList2() {
     let response = await fetch('/List');
 // console.log("response=",response);
@@ -87,7 +91,8 @@ async function getList2() {
     raw_data = data;
     CreateTble2();
 }
-
+*/
+/*
 async function getStamps() {
 
     let stamp_id = document.getElementById("employee_id").value;
@@ -104,7 +109,7 @@ async function getStamps() {
     employee_data = data;
     CreateStampTable();
 }
-
+*/
 async function addNewLine() {
     let first_name=document.getElementById("first_name").value;
     let last_name=document.getElementById("last_name").value;
@@ -136,12 +141,13 @@ async function deleteLine(id) {
 // console.log(data);
     getList();
 }
-
+/*
 async function selectLine(id){
     employeeSelected = true;
     document.getElementById("employee_id").value = id;
     getStamps();
-}
+}*/
+
 async function editLine(id) {
     let objToServer={};
     objToServer.idx=id;
@@ -158,6 +164,7 @@ async function editLine(id) {
     );
     getList();
 }
+/*
 async function addEnterTime(){
     if (employeeSelected === true){
     let employee_id=document.getElementById("employee_id").value;
@@ -169,7 +176,7 @@ async function addEnterTime(){
             body: JSON.stringify({employee_id: employee_id})
         }
     );
-    getStamps();
+    //getStamps();
     employeeSelected = false;
     }
 }
@@ -185,11 +192,11 @@ async function addExitTime(){
             body: JSON.stringify({employee_id: employee_id})
         }
     );
-    getStamps();
+    //getStamps();
 }
-
+*/
 
 getList();
-getList2()
-getStamps();
-document.getElementById("employee_id").value = " ";
+//getList2()
+//getStamps();
+//document.getElementById("employee_id").value = " ";
