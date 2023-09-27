@@ -1,6 +1,5 @@
 let srchTerm="";
 let employeeSelected = false;
-//document.getElementById("employee_id").value = " ";
 function FilterData(el){
     console.log("FilterData::",el);
     if(srchTerm==="")
