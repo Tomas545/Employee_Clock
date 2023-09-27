@@ -2,16 +2,20 @@ const express = require('express');
 const router = express.Router()
 module.exports = router;
 
+
 router.get("/",(req, res) => {
 
     res.render("mainPage");
 
 });
+
 router.get("/stampingPage",(req, res) => {
 
     res.render("stampingPage");
 
 });
+
+
 router.get("/employeeHours",(req, res) => {
 
     res.render("employeeHoursPage");
@@ -64,6 +68,7 @@ router.patch("/AddExitTime",(req,res)=>{
         }
     })
 });
+
 router.patch("/Edit",(req, res) => {
 
     let newAnswerObj = {};
@@ -121,6 +126,7 @@ router.get("/List",(req, res) => {
         }
     });
 });
+
 router.post("/Employee",(req, res) => {
 
     let stamp_id = req.body.stamp_id;
