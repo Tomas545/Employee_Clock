@@ -19,8 +19,8 @@ var db_M = require('./database');
 
 global.db_pool = db_M.pool;
 
-const cat_rtr = require('./routers/clock_R');
-app.use('/', cat_rtr);
+const CRUD_rtr = require('./routers/clock_R');
+app.use('/', CRUD_rtr);
 
 
 app.listen(port, () => {            //server starts listening for any attempts from a client to connect at port: {port}
